@@ -1,0 +1,10 @@
+#!/bin/sh -x
+
+PASSDIR=${PASSWORD_STORE_DIR}
+
+python3 -c "from pathlib import Path; \
+    p=Path('${PASSDIR}'); \
+    [print(str(i).replace('${PASSDIR}/', '').replace('.gpg', ''))for i in p.glob('**/*.gpg')]"\
+    | sort -u \
+    | peco \
+    | xargs -I{} pass -c {}
