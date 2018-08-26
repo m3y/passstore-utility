@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 PASSDIR=${PASSWORD_STORE_DIR}
 
