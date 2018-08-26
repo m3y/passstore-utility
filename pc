@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PASSDIR=${PASSWORD_STORE_DIR}
+PASSDIR=${PASSWORD_STORE_DIR:=$HOME/.password-store}
 
 python3 -c "from pathlib import Path; \
     p=Path('${PASSDIR}'); \
