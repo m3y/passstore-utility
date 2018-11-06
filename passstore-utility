@@ -2,10 +2,12 @@
 
 PASSDIR=${PASSWORD_STORE_DIR:=$HOME/.password-store}
 EXT=".gpg"
+CMD="pass"
+OPTION=${1}
 
 python3 -c "from pathlib import Path; \
     p=Path('${PASSDIR}'); \
     [print(str(i).replace('${PASSDIR}/','').replace('${EXT}',''))for i in p.glob('**/*${EXT}')]"\
     | sort -u \
     | peco \
-    | xargs pass -c
+    | xargs ${CMD} ${OPTION}
